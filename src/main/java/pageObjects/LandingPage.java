@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,17 +17,20 @@ public class LandingPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	private By jonpopup = By.xpath("//div[@class='listbuilder-popup-scale']//button[contains(text(), 'NO THANKS')]");
-	private By loginlink = By.xpath("//span[contains(text(), 'Login')]");
-	private By featuredcourses = By.cssSelector("section[id='content'] h2"); // .text-center>h2 - new way to identify the webelement
-	private By navigationbar = By.cssSelector("[class='navbar-collapse collapse'] li");
-	private By header = By.cssSelector("[id='banner'] h3");
+	By jonpopup = By.xpath("//div[@class='listbuilder-popup-scale']//button[contains(text(), 'NO THANKS')]");
+	By loginlink = By.xpath("//span[contains(text(), 'Login')]");
+	By featuredcourses = By.cssSelector("section[id='content'] h2"); // .text-center>h2 - new way to identify the webelement
+	By navigationbar = By.cssSelector("[class='navbar-collapse collapse'] li");
+	By header = By.cssSelector("[id='banner'] h3");
 	
-	public LoginPage jonpopup()
+	public WebElement jonpopup()
 	{
-		driver.findElement(jonpopup).click();
-		LoginPage popup = new LoginPage(driver);
-		return popup;
+		return driver.findElement(jonpopup);
+	}
+	
+	public List<WebElement> getPopUpSize()
+	{
+		return driver.findElements(jonpopup);
 	}
 	
 	public LoginPage loginlink()

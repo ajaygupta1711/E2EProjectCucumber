@@ -15,12 +15,20 @@ public class PortalHomePage {
 			PageFactory.initElements(driver, this);
 		}
 		
-		@FindBy(name="query") WebElement searchbox;
+		
+		@FindBy(css="[id='hero'] h1") WebElement textverification;
+		
+		public WebElement textverification()
+		{
+			return textverification;
+		}
+		
+//		@FindBy(name="query") WebElement searchbox;
 		
 		
-		public WebElement searchbox()
+/*		public WebElement searchbox()
 		{
 			return searchbox;
-		}
+		} */
 
 }
