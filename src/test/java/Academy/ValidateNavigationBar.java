@@ -37,7 +37,10 @@ public class ValidateNavigationBar extends base {
 	public void basePageNavigation()
 	{		
 		LandingPage l = new LandingPage(driver);
-		LoginPage popup = l.jonpopup();
+		if(l.getPopUpSize().size()>0)
+		{
+			l.jonpopup().click();
+		}
 		Assert.assertTrue(l.navigationbar().isDisplayed());
 		log.info("Successfully validated Text message");
 	}	

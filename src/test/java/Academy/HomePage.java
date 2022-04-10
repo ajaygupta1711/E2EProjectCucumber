@@ -35,8 +35,11 @@ public class HomePage extends base {
 		LandingPage l = new LandingPage(driver);
 		
 		@SuppressWarnings("unused")
-		LoginPage popup = l.jonpopup();
 		LoginPage lp = l.loginlink();
+		if(l.getPopUpSize().size()>0)
+		{
+			l.jonpopup().click();
+		}
 		lp.emailaddress().sendKeys(Username);
 		lp.password().sendKeys(Password);
 		lp.emailaddress().sendKeys(Username);
